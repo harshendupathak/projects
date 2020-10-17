@@ -1,0 +1,32 @@
+<div class="container">
+    <h1 style="text-align: center;margin-top: 1%;">CRUD Operations</h1>
+
+    <a style="position: absolute;top:10%;right: 10%;" href="#" routerLink="/user/create" class="btn btn-warning">Add new User</a>
+
+    <table style="margin-top: 7%;" class="table table-striped">
+        <thead class="thead thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th width="220px">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let post of posts">
+                <td>{{post.id}}</td>
+                <td>{{post.name}}</td>
+                <td>{{post.username}}</td>
+                <td>{{post.email}}</td>
+                <td>{{post.phone}}</td>
+                <td>
+                    <a href="#" [routerLink]="['/user/',post.id,'view']" class="btn btn-success">View</a>
+                    <a href="#" [routerLink]="['/user/',post.id,'edit']" class="btn btn-primary">Edit</a>
+                    <button type="button" (click)="deletePost(post.id)" class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
